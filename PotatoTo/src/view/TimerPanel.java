@@ -14,8 +14,6 @@ public class TimerPanel extends AnchorPane {
   private DigitPanel minutesUnits;
   private DigitPanel secondsDecades;
   private DigitPanel secondsUnits;
-
-  
   
   public TimerPanel() {
     startBtn = new Button("start");
@@ -52,7 +50,6 @@ public class TimerPanel extends AnchorPane {
               + "-fx-background-radius:0,0,0,0;"
               + "-fx-border-style:solid; -fx-border-width:1px");
 
-    
     stopBtn.setPrefHeight(150/3);
     stopBtn.setPrefWidth(150/3);
     stopBtn.setLayoutX(300 - 50);
@@ -61,7 +58,6 @@ public class TimerPanel extends AnchorPane {
              + "-fx-background-radius:0,0,0,0;"
              + "-fx-border-style:solid; -fx-border-width:1px");
     
-
     minutesDecades.setLayoutX(0);
     minutesDecades.setLayoutY(0);
     

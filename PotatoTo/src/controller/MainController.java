@@ -2,6 +2,7 @@ package controller;
 
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.scene.input.MouseEvent;
 import potatoto.ScreenManager;
 import view.MainPanel;
 
@@ -45,6 +46,7 @@ public class MainController implements ManagedScreen {
         System.out.println("clicked on stop");
       }
     });
+    
   }
   
 }

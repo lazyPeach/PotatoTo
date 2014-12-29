@@ -2,22 +2,34 @@ package view;
 
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 
 public class MainPanel extends AnchorPane {
 
   private TimerPanel timerPanel;
+  private TaskListPanel taskListPanel;
   
   public MainPanel() {
     timerPanel = new TimerPanel();
+    taskListPanel = new TaskListPanel();
     
+    initializePanel();
+
+    setStyle("-fx-background-color: #ffff00");
+  }
+  
+  private void initializePanel() {
     setPrefWidth(300);
     setPrefHeight(500);
-    setStyle("-fx-background-color: #ffff00");
+  
+    taskListPanel.setLayoutX(0);
+    taskListPanel.setLayoutY(timerPanel.getPrefHeight());
     
     getChildren().add(timerPanel);
-    
+    getChildren().add(taskListPanel);
   }
+  
   
   public void setTimerStartBtnHandler(EventHandler<ActionEvent> handler) {
     timerPanel.setStartBtnHandler(handler);
@@ -30,7 +42,7 @@ public class MainPanel extends AnchorPane {
   public void setTimerStopBtnHandler(EventHandler<ActionEvent> handler) {
     timerPanel.setStopBtnHandler(handler);
   }  
-
+  
   public void testUpdate(int number) {
     timerPanel.testUpdate(number);
   }
