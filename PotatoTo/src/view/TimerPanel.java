@@ -10,12 +10,23 @@ public class TimerPanel extends AnchorPane {
   private Button startBtn;
   private Button pauseBtn;
   private Button stopBtn;
+  private DigitPanel minutesDecades;
+  private DigitPanel minutesUnits;
+  private DigitPanel secondsDecades;
+  private DigitPanel secondsUnits;
+
+  
   
   public TimerPanel() {
     startBtn = new Button("start");
     pauseBtn = new Button("pause");
     stopBtn = new Button("stop");
-       
+    minutesDecades = new DigitPanel();
+    minutesUnits = new DigitPanel();
+    secondsDecades = new DigitPanel();
+    secondsUnits = new DigitPanel();
+
+    
     initializePanel();
     
     setStyle("-fx-background-color: #0000ff;");
@@ -51,7 +62,23 @@ public class TimerPanel extends AnchorPane {
              + "-fx-border-style:solid; -fx-border-width:1px");
     
 
+    minutesDecades.setLayoutX(0);
+    minutesDecades.setLayoutY(0);
     
+    minutesUnits.setLayoutX(minutesDecades.getLayoutX() + minutesDecades.getPrefWidth());
+    minutesUnits.setLayoutY(0);
+    
+    secondsDecades.setLayoutX(minutesUnits.getLayoutX() + minutesUnits.getPrefWidth());
+    secondsDecades.setLayoutY(0);
+    
+    secondsUnits.setLayoutX(secondsDecades.getLayoutX() + secondsDecades.getPrefWidth());
+    secondsUnits.setLayoutY(0);
+    
+    getChildren().add(minutesDecades);
+    getChildren().add(minutesUnits);
+    getChildren().add(secondsDecades);
+    getChildren().add(secondsUnits);
+
     getChildren().add(startBtn);
     getChildren().add(pauseBtn);
     getChildren().add(stopBtn);
@@ -68,4 +95,8 @@ public class TimerPanel extends AnchorPane {
   public void setStopBtnHandler(EventHandler<ActionEvent> handler) {
     stopBtn.setOnAction(handler);
   }  
+  
+  public void testUpdate(int number) {
+    minutesDecades.update(number);
+  }
 }

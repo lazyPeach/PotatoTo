@@ -24,7 +24,6 @@ public class PotatoTo extends Application {
     screenManager.addScreen(loginID, loginPanel);
     screenManager.addScreen(mainID, mainPanel);
     
-    
     LoginController loginContrller = new LoginController();
     loginContrller.setScreenManager(screenManager);
     loginContrller.setPanel(loginPanel);
@@ -33,7 +32,7 @@ public class PotatoTo extends Application {
     mainController.setScreenManager(screenManager);
     mainController.setMainPanel(mainPanel);
     
-    screenManager.setScreen(loginID);
+    screenManager.setScreen(mainID);
     
     Group root = new Group();
     root.getChildren().addAll(screenManager);
@@ -44,7 +43,4 @@ public class PotatoTo extends Application {
     primaryStage.show();
   }
   
-  public static void main() {
-    
-  }
 }

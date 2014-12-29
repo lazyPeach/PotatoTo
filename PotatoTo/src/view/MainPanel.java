@@ -17,8 +17,6 @@ public class MainPanel extends AnchorPane {
     
     getChildren().add(timerPanel);
     
-//    timerPanel.setLayoutX(0);
-//    timerPanel.setLayoutY(30);
   }
   
   public void setTimerStartBtnHandler(EventHandler<ActionEvent> handler) {
@@ -32,5 +30,9 @@ public class MainPanel extends AnchorPane {
   public void setTimerStopBtnHandler(EventHandler<ActionEvent> handler) {
     timerPanel.setStopBtnHandler(handler);
   }  
+
+  public void testUpdate(int number) {
+    timerPanel.testUpdate(number);
+  }
   
 }
