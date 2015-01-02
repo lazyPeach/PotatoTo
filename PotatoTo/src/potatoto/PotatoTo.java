@@ -3,13 +3,19 @@ package potatoto;
 import controller.LoginController;
 import controller.MainController;
 import javafx.application.Application;
+import javafx.application.Platform;
+import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Group;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import javafx.stage.WindowEvent;
 import model.CountdownTimer;
 import model.TaskManager;
+import util.Dimensions;
 import view.LoginPanel;
 import view.MainPanel;
 
@@ -39,26 +45,26 @@ public class PotatoTo extends Application {
     mainController.setScreenManager(screenManager);
     mainController.setMainPanel(mainPanel);
     
-    screenManager.setScreen(mainID);
+    screenManager.setScreen(loginID);
     
     Group root = new Group();
     root.getChildren().addAll(screenManager);
-    Scene scene = new Scene(root, 300, 500);
     
     
+    Scene scene = new Scene(root, Dimensions.APPLICATION_WIDTH, Dimensions.APPLICATION_HEIGHT);
+    scene.getStylesheets().add("resources/style/defaultStyle.css");
     
-    primaryStage.setTitle("Hello World!");
+    primaryStage.setTitle("PotatoTo");
     primaryStage.setScene(scene);
     primaryStage.show();
+
+    
     primaryStage.setOnCloseRequest(new EventHandler<WindowEvent>() {
 
       @Override
       public void handle(WindowEvent t) {
         timer.stop();
-        //srialize taskList
-        System.out.println("trying to close biatce");
       }
     });
-  }
-  
+  }  
 }

@@ -1,0 +1,73 @@
+.root {
+  -fx-text-fill: #ffffff;
+  -fx-font-family: "Calibri";
+  -fx-font-size: 18pt;
+}
+
+#loginPanel {
+  -fx-background-color: #353535;
+}
+
+.loginLabel {
+  -fx-text-fill: #ffffff;
+  -fx-font-family: "Calibri";
+  -fx-font-size: 18pt;
+}
+
+#loginError {
+  -fx-text-fill: #dd0000;
+  -fx-font-family: "Calibri";
+  -fx-font-size: 18pt;
+  -fx-alignment: center;
+}
+
+.loginField {
+  -fx-text-fill: #000000;
+  -fx-font-family: "Calibri";
+  -fx-font-size: 18pt;
+  -fx-background-color: #a5a5a5;
+  -fx-background-radius: 0, 0, 0, 0;
+}
+
+.loginField:focused {
+  -fx-border-color: #000000;
+}
+
+#loginBtn {
+  -fx-text-fill: #000000;
+  -fx-font-family: "Calibri";
+  -fx-font-size: 18pt;
+  -fx-background-color: #a5a5a5;
+  -fx-background-radius: 0;
+  -fx-border-color: #858585;
+}
+
+#loginBtn:hover {
+  -fx-text-fill: #ffffff;
+  -fx-background-color: #858585;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#timerPanel {
+  -fx-background-color: #0000ff;
+}
+
+

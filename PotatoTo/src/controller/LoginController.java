@@ -1,36 +1,36 @@
 package controller;
 
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import potatoto.PotatoTo;
 import potatoto.ScreenManager;
 import view.LoginPanel;
 
-public class LoginController implements ManagedScreen  {
+public class LoginController implements ManagedScreen {
 
   private ScreenManager manager;
-  private LoginPanel panel;
-  
+  private LoginPanel loginPanel;
+
   @Override
   public void setScreenManager(ScreenManager screenManager) {
     manager = screenManager;
   }
-  
-  public void setPanel(LoginPanel panel) {
-    this.panel = panel;
-    
+
+  public void setPanel(LoginPanel loginPanel) {
+    this.loginPanel = loginPanel;
+
     initialize();
   }
-  
-  private void initialize() {
-    panel.setLoginBtnHandler(new EventHandler<ActionEvent>() {
 
-      @Override
-      public void handle(ActionEvent t) {
-        System.out.println("clicked on login");
+  private void initialize() {
+    loginPanel.setLoginBtnHandler((ActionEvent t) -> {
+      String[] credentials = loginPanel.getCredentials();
+
+      if (credentials[0].equals("") || credentials[1].equals("")) {
+        loginPanel.displayErrorMessage();
+      } else {
         manager.setScreen(PotatoTo.mainID);
       }
     });
   }
-  
+
 }
