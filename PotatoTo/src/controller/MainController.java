@@ -3,6 +3,7 @@ package controller;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.input.MouseEvent;
+import model.CountdownTimer;
 import potatoto.ScreenManager;
 import view.MainPanel;
 
@@ -10,6 +11,12 @@ public class MainController implements ManagedScreen {
 
   private ScreenManager manager;
   private MainPanel panel;
+  private CountdownTimer timer;
+
+  
+  public MainController(CountdownTimer timer) {
+    this.timer = timer;
+  }
   
   @Override
   public void setScreenManager(ScreenManager screenManager) {
@@ -22,12 +29,17 @@ public class MainController implements ManagedScreen {
     initialize();
   }
   
-  private void initialize() {
+  
+  
+  
+  private void initialize() {    
+    timer.setTimeLimit(30 * 60);
+    
     panel.setTimerStartBtnHandler(new EventHandler<ActionEvent>() {
 
       @Override
       public void handle(ActionEvent t) {
-        System.out.println("clicked on start");
+        timer.start();
       }
     });
     
@@ -35,7 +47,7 @@ public class MainController implements ManagedScreen {
 
       @Override
       public void handle(ActionEvent t) {
-        System.out.println("cliecked on pause");
+        timer.pauseResume();
       }
     });
     
@@ -43,7 +55,7 @@ public class MainController implements ManagedScreen {
 
       @Override
       public void handle(ActionEvent t) {
-        System.out.println("clicked on stop");
+        timer.stop();
       }
     });
     

@@ -6,6 +6,7 @@ import javafx.application.Application;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import model.CountdownTimer;
 import view.LoginPanel;
 import view.MainPanel;
 
@@ -18,8 +19,10 @@ public class PotatoTo extends Application {
   public void start(Stage primaryStage) {
     ScreenManager screenManager = new ScreenManager();
     
+    CountdownTimer timer = new CountdownTimer();
+    
     LoginPanel loginPanel = new LoginPanel();
-    MainPanel mainPanel = new MainPanel();
+    MainPanel mainPanel = new MainPanel(timer);
     
     screenManager.addScreen(loginID, loginPanel);
     screenManager.addScreen(mainID, mainPanel);
@@ -28,7 +31,7 @@ public class PotatoTo extends Application {
     loginContrller.setScreenManager(screenManager);
     loginContrller.setPanel(loginPanel);
     
-    MainController mainController = new MainController();
+    MainController mainController = new MainController(timer);
     mainController.setScreenManager(screenManager);
     mainController.setMainPanel(mainPanel);
     
@@ -37,6 +40,8 @@ public class PotatoTo extends Application {
     Group root = new Group();
     root.getChildren().addAll(screenManager);
     Scene scene = new Scene(root, 300, 500);
+    
+    
     
     primaryStage.setTitle("Hello World!");
     primaryStage.setScene(scene);
