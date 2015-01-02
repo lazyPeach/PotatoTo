@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.animation.RotateTransition;
+import javafx.animation.ScaleTransition;
+import javafx.animation.SequentialTransition;
 import javafx.animation.TranslateTransition;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -15,53 +17,54 @@ import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Polygon;
 import javafx.util.Duration;
+import entities.Task;
+import java.util.List;
+import model.TaskManager;
 
 public class TaskListPanel extends AnchorPane {
 
-  private Pane sizeManagerPane;
+  private Pane sizeManagerPanel;
   private Polygon triangleDecoration;
   private boolean shouldExtend = true;
+  private List<Task> taskList;
 
-  public TaskListPanel() {
-    sizeManagerPane = new Pane();
+  public TaskListPanel(List<Task> taskList) {
+    this.taskList = taskList;
+    sizeManagerPanel = new Pane();
 
-    initializeSizeManagerPane();
+    initializeSizeManagerPanel();
 
     initializePanel();
 
     setStyle("-fx-background-color: #00ff00;");
   }
 
-  private void initializeSizeManagerPane() {
-    sizeManagerPane.setPrefWidth(300);
-    sizeManagerPane.setPrefHeight(15);
-    sizeManagerPane.setStyle("-fx-background-color: #ffff00;");
+  private void initializeSizeManagerPanel() {
+    sizeManagerPanel.setPrefWidth(300);
+    sizeManagerPanel.setPrefHeight(15);
+    setStyle("-fx-background-color: rgba(0,0,0,0)");
 
     triangleDecoration = new Polygon(new double[]{150, 5, 153, 10, 147, 10});
     triangleDecoration.setFill(Color.BLACK);
-    triangleDecoration.setStroke(Color.BLACK);
+    triangleDecoration.setStroke(Color.WHITE);
 
-    sizeManagerPane.getChildren().add(triangleDecoration);
+    sizeManagerPanel.getChildren().add(triangleDecoration);
 
-    // i want this to be handled internally because it doesn't have anything to do with model so 
+    // This should be handled internally because it doesn't have anything to do with model so 
     // there is no reason to handle this event from controller
-    sizeManagerPane.setOnMouseClicked(new EventHandler<MouseEvent>() {
+    sizeManagerPanel.setOnMouseClicked(new EventHandler<MouseEvent>() {
 
       @Override
       public void handle(MouseEvent t) {
-        System.out.println("clicked on extend");
-        if (shouldExtend) {
-          triggerExtend();
-        } else {
-          triggerCompress();
-        }
+        if (shouldExtend) triggerExtend();
+        else triggerCompress();
+        
         shouldExtend = !shouldExtend;
-
       }
     });
-
   }
 
+  // extends the task list panel
   private void triggerExtend() {
     TranslateTransition tt = new TranslateTransition(Duration.millis(1000), this);
     tt.setFromY(0);
@@ -72,10 +75,11 @@ public class TaskListPanel extends AnchorPane {
     rt.setFromAngle(0);
     rt.setToAngle(180);
     rt.play();
-
+    
     initializeExtendedPanel();
   }
-  
+
+  // compresses the task list panel
   private void triggerCompress() {
     TranslateTransition tt = new TranslateTransition(Duration.millis(1000), this);
     tt.setFromY(-150);
@@ -87,29 +91,30 @@ public class TaskListPanel extends AnchorPane {
     rt.setToAngle(360);
     rt.play();
 
-    
     initializePanel();
   }
 
+  // todo - refactor this bullsh...
   private void initializePanel() {
     getChildren().clear();
-    
+
     setPrefWidth(300);
     setPrefHeight(350);
+    
+    ArrayList<TaskPanel> taskPanelList = new ArrayList<>();
 
-    ArrayList<TaskPanel> tasksList = new ArrayList<>();
-
-    for (int i = 0; i < 20; i++) {
-      TaskPanel testPanel = new TaskPanel(i);
-      tasksList.add(testPanel);
+    for (Task task : taskList) {
+      TaskPanel testPanel = new TaskPanel(task);
+      taskPanelList.add(testPanel);
     }
-    ObservableList<TaskPanel> tasks = FXCollections.observableArrayList(tasksList);
-    ListView<TaskPanel> listView = new ListView<>(tasks);
+
+    ObservableList<TaskPanel> observableTaskPanelList = FXCollections.observableArrayList(taskPanelList);
+    ListView<TaskPanel> listView = new ListView<>(observableTaskPanelList);
     listView.setPrefWidth(300);
     listView.setPrefHeight(335);
-    listView.setLayoutY(sizeManagerPane.getPrefHeight());
+    listView.setLayoutY(sizeManagerPanel.getPrefHeight());
 
-    getChildren().add(sizeManagerPane);
+    getChildren().add(sizeManagerPanel);
     getChildren().add(listView);
   }
 
@@ -120,19 +125,21 @@ public class TaskListPanel extends AnchorPane {
 
     ArrayList<TaskPanel> tasksList = new ArrayList<>();
 
-    for (int i = 0; i < 20; i++) {
-      TaskPanel testPanel = new TaskPanel(i);
-      tasksList.add(testPanel);
+    ArrayList<TaskPanel> taskPanelList = new ArrayList<>();
+
+    for (Task task : taskList) {
+      TaskPanel testPanel = new TaskPanel(task);
+      taskPanelList.add(testPanel);
     }
-    ObservableList<TaskPanel> tasks = FXCollections.observableArrayList(tasksList);
-    ListView<TaskPanel> listView = new ListView<>(tasks);
+    
+    ObservableList<TaskPanel> observableTaskPanelList = FXCollections.observableArrayList(taskPanelList);
+    ListView<TaskPanel> listView = new ListView<>(observableTaskPanelList);
     listView.setPrefWidth(300);
     listView.setPrefHeight(485);
-    listView.setLayoutY(sizeManagerPane.getPrefHeight());
+    listView.setLayoutY(sizeManagerPanel.getPrefHeight());
 
-    getChildren().add(sizeManagerPane);
+    getChildren().add(sizeManagerPanel);
     getChildren().add(listView);
-
   }
 
 }

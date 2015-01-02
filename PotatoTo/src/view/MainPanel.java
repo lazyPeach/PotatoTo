@@ -6,6 +6,7 @@ import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import model.CountdownTimer;
+import model.TaskManager;
 
 public class MainPanel extends AnchorPane {
 
@@ -13,11 +14,13 @@ public class MainPanel extends AnchorPane {
   private TaskListPanel taskListPanel;
   
   private CountdownTimer timer;
+  private TaskManager taskManager;
   
-  public MainPanel(CountdownTimer timer) {
+  public MainPanel(CountdownTimer timer, TaskManager taskManager) {
     this.timer = timer;
+    this.taskManager = taskManager;
     timerPanel = new TimerPanel(timer);
-    taskListPanel = new TaskListPanel();
+    taskListPanel = new TaskListPanel(taskManager.getTaskList());
     
     initializePanel();
 
