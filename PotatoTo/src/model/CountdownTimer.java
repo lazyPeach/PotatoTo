@@ -105,6 +105,8 @@ public class CountdownTimer {
 
   public void setTimeLimit(int timeLimit) {
     this.timeLimit = timeLimit;
+    setMinutes(timeLimit / 60);
+    setSeconds(0);
   }
 
   public final double getSeconds() {

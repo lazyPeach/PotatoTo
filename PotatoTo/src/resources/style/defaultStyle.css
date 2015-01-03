@@ -151,6 +151,10 @@
   -fx-background-color: #555555;
 }
 
+#sizeManagerPanel:hover {
+  -fx-background-color: #550000;  
+}
+
 #taskList {
 
   -fx-font-size: 10pt;
@@ -222,6 +226,48 @@
   -fx-font-family: "Calibri";
   -fx-font-size: 10pt;
 }
+/*end task panel*/
 
+/*start timer preferences panel*/
+
+#timerPreferences {
+  -fx-background-color: rgba(100, 100, 100, 0.8);
+}
+
+.timerPreferencesLabel {
+
+  -fx-text-fill: #bb0000;
+  -fx-font-family: "Calibri";
+  -fx-font-size: 10pt;
+}
+
+.timerPreferencesSlider {
+  -fx-background-color: transparent;
+  -fx-text-fill: #bb0000;
+  -fx-font-family: "Calibri";
+  -fx-font-size: 10pt;
+}
+
+.timerPreferencesSlider .track {
+  -fx-background-color: #aa0000;
+}
+
+.timerPreferencesSlider .thumb {
+  -fx-background-color: #880000;
+  -fx-border-color: #353535;
+  -fx-border-radius: 50%;
+}
+
+.timerPreferencesBtn {
+  -fx-background-radius: 50%;
+  -fx-background-color: #252525;
+  -fx-text-fill: #880000;
+  -fx-font-family: "Calibri";
+  -fx-font-size: 10pt;
+  -fx-border-radius: 50%;
+  -fx-border-color: #770000;
+}
+
+/*end timer preferences panel*/
 
 

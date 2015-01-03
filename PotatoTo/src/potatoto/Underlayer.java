@@ -6,26 +6,38 @@ import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
 import javafx.scene.layout.AnchorPane;
+import model.CountdownTimer;
+import view.TimerPreferences;
 
 public class Underlayer extends AnchorPane {
 
   private MenuBar menuBar;
   private Menu menuLogOut;
+  private Menu menuTimer;
+  
   private MenuItem logOutItem;
+  private MenuItem timerItem;
+  
   private ScreenManager screenManager;
+  private CountdownTimer timer;
 
-  public Underlayer(ScreenManager screenManager) {
+  public Underlayer(ScreenManager screenManager, CountdownTimer timer) {
     this.screenManager = screenManager;
+    this.timer = timer;
     menuBar = new MenuBar();
-    menuLogOut = new Menu("Log out");
-    logOutItem = new MenuItem("Log out");
+   
+    menuLogOut = new Menu("log out");
+    menuTimer = new Menu("timer");
     
-    menuBar.getMenus().addAll(menuLogOut);
-    menuBar.setVisible(false);
+    logOutItem = new MenuItem("log out");
+    timerItem = new MenuItem("preferences");
+    
+    menuBar.getMenus().addAll(menuTimer, menuLogOut);
+    menuBar.setVisible(true);
     menuBar.setPrefWidth(300);
     
     menuLogOut.getItems().add(logOutItem);
-    
+    menuTimer.getItems().add(timerItem);
     
     getChildren().add(screenManager);
     getChildren().add(menuBar);
@@ -39,9 +51,20 @@ public class Underlayer extends AnchorPane {
   
   private void setMenuHandlers() {
     logOutItem.setOnAction((ActionEvent t) -> {
-      System.out.println("clicked");
       screenManager.setScreen(PotatoTo.loginID);
     });
+    
+    timerItem.setOnAction((ActionEvent t) -> {
+      
+      TimerPreferences timerPreferences = new TimerPreferences(timer);
+      timerPreferences.setLayoutX(50);
+      timerPreferences.setLayoutY(175);
+      
+      timerPreferences.toFront();
+      
+      getChildren().add(timerPreferences);
+    });
+    
   }
 
 }

@@ -1,7 +1,6 @@
 package controller;
 
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import model.CountdownTimer;
 import model.TaskManager;
 import potatoto.ScreenManager;

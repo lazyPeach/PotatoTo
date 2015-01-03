@@ -88,7 +88,7 @@ public class ScreenManager extends StackPane {
       @Override
       public void handle(MouseEvent event) {
         System.out.println("x: " + event.getX() + " y: " + event.getY());
-        if (event.getY() <= 10) {
+        if (event.getY() <= 5) {
           menuBar.setVisible(true);
         } else {
           menuBar.setVisible(false);

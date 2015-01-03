@@ -3,20 +3,9 @@ package potatoto;
 import controller.LoginController;
 import controller.MainController;
 import javafx.application.Application;
-import javafx.application.Platform;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.scene.Group;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Menu;
-import javafx.scene.control.MenuBar;
-import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 import javafx.stage.WindowEvent;
 import model.CountdownTimer;
 import model.TaskManager;
@@ -32,12 +21,12 @@ public class PotatoTo extends Application {
   @Override
   public void start(Stage primaryStage) {
 
-    ScreenManager screenManager = new ScreenManager();
-    Underlayer scenePanel = new Underlayer(screenManager);
-    screenManager.setMenuBar(scenePanel.getMenuBar());
-
     CountdownTimer timer = new CountdownTimer();
     TaskManager taskManager = new TaskManager();
+
+    ScreenManager screenManager = new ScreenManager();
+    Underlayer scenePanel = new Underlayer(screenManager, timer);
+    screenManager.setMenuBar(scenePanel.getMenuBar());
 
     LoginPanel loginPanel = new LoginPanel();
     MainPanel mainPanel = new MainPanel(timer, taskManager);
@@ -52,7 +41,7 @@ public class PotatoTo extends Application {
     MainController mainController = new MainController(mainPanel, timer, taskManager);
     mainController.setScreenManager(screenManager);
 
-    screenManager.setScreen(loginID);
+    screenManager.setScreen(mainID);
 
     Group root = new Group();
     root.getChildren().add(scenePanel);
