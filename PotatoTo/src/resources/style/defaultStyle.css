@@ -55,7 +55,7 @@
   -fx-background-color: #353535;
 }
 
-
+/* start timer panel*/
 #digitPanel {
   -fx-background-color: rgba(0,0,0,0);
 }
@@ -83,3 +83,93 @@
 #timerStop {
   -fx-background-color: #880000;
 }
+/*end timer panel*/
+
+/*start task panel*/
+#taskPanel {
+  -fx-background-color: rgba(0,0,0,0);
+}
+
+#triangleDecoration {
+  -fx-fill: #000000;
+  -fx-stroke: #000000;
+}
+
+#sizeManagerPanel {
+  -fx-background-color: #555555;
+}
+
+#taskList {
+
+  -fx-font-size: 10pt;
+  -fx-background-color: #555555;
+}
+
+/*scrollbar http://blog.ngopal.com.np/2012/07/11/customize-scrollbar-via-css/*/
+
+#taskList .scroll-bar:vertical {
+  -fx-background-color: #555555;
+}
+
+#taskList .scroll-bar:vertical .track {
+  -fx-background-color: transparent;
+  -fx-border-color: transparent;
+  -fx-background-radius: 0em;
+  -fx-border-radius: 2em;
+}
+
+#taskList .scroll-bar:vertical .increment-button,
+#taskList .scroll-bar:vertical .decrement-button {
+  -fx-background-color: transparent;
+  -fx-background-radius: 0em;
+  -fx-padding: 0 10 0 0;
+}
+
+#taskList .scroll-bar:vertical .increment-arrow,
+#taskList .scroll-bar:vertical .decrement-arrow {
+  -fx-shape: " ";
+  -fx-padding: 0;
+}
+
+#taskList .scroll-bar:vertical .thumb {
+  -fx-background-color: #880000;
+  -fx-background-insets: 2, 0, 0;
+  -fx-background-radius: 2em;
+}
+
+#taskList:focused {
+  -fx-focus-color: #555555;
+}
+
+.list-cell:even {
+  -fx-background-color: #656565;
+}
+
+.list-cell:odd {
+  -fx-background-color: #757575;
+}
+
+.list-cell:filled:hover {
+  -fx-background-color: #505050;
+}
+
+.list-cell:filled:selected:focused, .list-cell:filled:selected {
+  -fx-background-color: linear-gradient(#909090 0%, #555555 25%, #555555 75%, #909090 100%);
+}
+
+#simpleTaskPanel {
+  -fx-background-color: rgba(0,0,0,0);
+  -fx-text-fill: #aa0000;
+  -fx-font-family: "Calibri";
+  -fx-font-size: 10pt;
+}
+
+#taskHeader {
+  -fx-background-color: #454545;
+  -fx-text-fill: #880000;
+  -fx-font-family: "Calibri";
+  -fx-font-size: 10pt;
+}
+
+
+

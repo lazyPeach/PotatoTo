@@ -20,11 +20,11 @@ public class MainPanel extends AnchorPane {
     this.timer = timer;
     this.taskManager = taskManager;
     timerPanel = new TimerPanel(timer);
-    taskListPanel = new TaskListPanel(taskManager.getTaskList());
+    taskListPanel = new TaskListPanel(taskManager);
     
     initializePanel();
-
-    setStyle("-fx-background-color: #ffff00");
+    
+    this.setId("mainPanel");
   }
   
   private void initializePanel() {
@@ -35,29 +35,20 @@ public class MainPanel extends AnchorPane {
     taskListPanel.setLayoutY(timerPanel.getPrefHeight());
     
     getChildren().add(timerPanel);
-    getChildren().add(taskListPanel);
-    
-    Button testBtn = new Button("test me test me");
-    getChildren().add(testBtn);
-    testBtn.setVisible(false);
-    testBtn.setOnMouseClicked(new EventHandler<MouseEvent>() {
-
-      @Override
-      public void handle(MouseEvent t) {
-        System.out.println("clicked on test");
-      }
-    });
-    
-    testBtn.setOnMouseEntered(new EventHandler<MouseEvent>() {
-
-      @Override
-      public void handle(MouseEvent t) {
-        System.out.println("mouse enterred the test area beep beep");
-      }
-    });
-    
+    getChildren().add(taskListPanel);    
   }
   
+  public void startTimer() {
+    timerPanel.startTimer();
+  }
+  
+  public void pauseResumeTimer() {
+    timerPanel.pauseResumeTimer();
+  }
+  
+  public void stopTimer() {
+    timerPanel.stopTimer();
+  }
   
   public void setTimerStartBtnHandler(EventHandler<ActionEvent> handler) {
     timerPanel.setStartBtnHandler(handler);
@@ -69,5 +60,5 @@ public class MainPanel extends AnchorPane {
   
   public void setTimerStopBtnHandler(EventHandler<ActionEvent> handler) {
     timerPanel.setStopBtnHandler(handler);
-  }    
+  }
 }

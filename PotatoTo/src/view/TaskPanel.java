@@ -3,23 +3,56 @@ package view;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import entities.Task;
+import javafx.scene.layout.HBox;
 
-public class TaskPanel extends AnchorPane {
+public class TaskPanel extends HBox {
 
   private Label taskNameLbl;
+  private Label finishedSessionsLbl;
+  private Label scheduledSessionsLbl;
+  private Task task;
 
-  public TaskPanel(Task t) {
+  public TaskPanel() {
+    this(null);
+  }
+
+  public TaskPanel(Task task) {
     taskNameLbl = new Label();
-    taskNameLbl.setText("test label " + t.getTaskName());
+    finishedSessionsLbl = new Label();
+    scheduledSessionsLbl = new Label();
+    this.task = task;
 
     initializePanel();
+    initializeStyle();
+  }
+
+  private void initializeStyle() {
+    setId("simpleTaskPanel");
+    taskNameLbl.setId("simpleTaskPanel");
+    finishedSessionsLbl.setId("simpleTaskPanel");
+    scheduledSessionsLbl.setId("simpleTaskPanel");
   }
 
   private void initializePanel() {
-    setPrefHeight(30);
-    setPrefWidth(250);
+    setPrefHeight(20);
+
+    if (task == null) {
+      taskNameLbl.setText("Task name");
+      finishedSessionsLbl.setText("D");
+      scheduledSessionsLbl.setText("E");
+    } else {
+      taskNameLbl.setText(task.getTaskName());
+      finishedSessionsLbl.setText(String.valueOf(task.getFinishedSessions()));
+      scheduledSessionsLbl.setText(String.valueOf(task.getScheduledSessions()));
+    }
+
+    taskNameLbl.setPrefWidth(200);
+    finishedSessionsLbl.setPrefWidth(20);
+    scheduledSessionsLbl.setPrefWidth(20);
 
     getChildren().add(taskNameLbl);
+    getChildren().add(finishedSessionsLbl);
+    getChildren().add(scheduledSessionsLbl);
   }
 
 }
