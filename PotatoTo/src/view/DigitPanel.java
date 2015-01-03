@@ -1,7 +1,6 @@
 package view;
 
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.paint.Color;
 import javafx.scene.shape.Polygon;
 
 public class DigitPanel extends AnchorPane {
@@ -22,16 +21,16 @@ public class DigitPanel extends AnchorPane {
 
   // A - 0, B - 1, C - 2, D - 3, E - 4, F - 5, G - 6
   boolean[][] sevenSegmentConfig = {
-    {true, true, true, true, true, true, false}, // 0
-    {false, false, false, false, true, true, false}, // 1
-    {true, false, true, true, false, true, true}, // 2
-    {true, false, false, true, true, true, true}, // 3
-    {false, true, false, false, true, true, true}, // 4
-    {true, true, false, true, true, false, true}, // 5
-    {true, true, true, true, true, false, true}, // 6
-    {true, false, false, false, true, true, false}, // 7
-    {true, true, true, true, true, true, true}, // 8
-    {true, true, false, true, true, true, true} // 9
+    {true, true, true, true, true, true, false},      // 0
+    {false, false, false, false, true, true, false},  // 1
+    {true, false, true, true, false, true, true},     // 2
+    {true, false, false, true, true, true, true},     // 3
+    {false, true, false, false, true, true, true},    // 4
+    {true, true, false, true, true, false, true},     // 5
+    {true, true, true, true, true, false, true},      // 6
+    {true, false, false, false, true, true, false},   // 7
+    {true, true, true, true, true, true, true},       // 8
+    {true, true, false, true, true, true, true}       // 9
   };
 
   public DigitPanel() {
@@ -44,54 +43,34 @@ public class DigitPanel extends AnchorPane {
     segmentG = new Polygon(new double[]{10, 75, 15, 70, 45, 70, 50, 75, 45, 80, 15, 80});
 
     initializePanel();
+    initializeStyle();
+  }
+  
+  private void initializeStyle() {
+    setId("digitPanel");
+    segmentA.getStyleClass().add("digit");
+    segmentB.getStyleClass().add("digit");
+    segmentC.getStyleClass().add("digit");
+    segmentD.getStyleClass().add("digit");
+    segmentE.getStyleClass().add("digit");
+    segmentF.getStyleClass().add("digit");
+    segmentG.getStyleClass().add("digit");
 
-    setStyle("-fx-background-color: rgba(0,0,0,0)");
   }
 
   private void initializePanel() {
     setPrefHeight(150);
     setPrefWidth(60);
 
-    Color segColor = Color.BLACK;
-
-    segmentA.setStroke(segColor);
-    segmentA.setFill(segColor);
     getChildren().add(segmentA);
-
-    segmentB.setStroke(segColor);
-    segmentB.setFill(segColor);
     getChildren().add(segmentB);
-
-    segmentC.setStroke(segColor);
-    segmentC.setFill(segColor);
     getChildren().add(segmentC);
-
-    segmentD.setStroke(segColor);
-    segmentD.setFill(segColor);
     getChildren().add(segmentD);
-
-    segmentE.setStroke(segColor);
-    segmentE.setFill(segColor);
     getChildren().add(segmentE);
-
-    segmentF.setStroke(segColor);
-    segmentF.setFill(segColor);
     getChildren().add(segmentF);
-
-    segmentG.setStroke(segColor);
-    segmentG.setFill(segColor);
     getChildren().add(segmentG);
 
     update(0);
-    
-    /*
-     //draws a 2px * px point
-     Polygon polygon2 = new Polygon(new double[] { 5, 75 });
-     polygon2.setStroke(Color.DARKRED);
-     polygon2.setStrokeWidth(2);
-     polygon2.setFill(Color.DARKRED);
-     getChildren().add(polygon2);
-     */
   }
 
   public void update(int number) {

@@ -4,6 +4,7 @@
   -fx-font-size: 18pt;
 }
 
+/*start style for login panel*/
 #loginPanel {
   -fx-background-color: #353535;
 }
@@ -46,28 +47,39 @@
   -fx-text-fill: #ffffff;
   -fx-background-color: #858585;
 }
+/*end style for login panel*/
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-#timerPanel {
-  -fx-background-color: #0000ff;
+/*start style for main panel*/
+#mainPanel {
+  -fx-background-color: #353535;
 }
 
 
+#digitPanel {
+  -fx-background-color: rgba(0,0,0,0);
+}
+
+.digit {
+  -fx-fill: #550000;
+  -fx-stroke: #550000;
+}
+
+.timerBtn {
+  -fx-text-fill: #000000;
+  -fx-font-family: "Calibri";
+  -fx-font-size: 8pt;
+  -fx-background-radius:0,0,0,0;
+}
+
+#timerStart {
+  -fx-background-color: #555555;
+}
+
+#timerPause {
+  -fx-background-color: #808000;
+}
+
+#timerStop {
+  -fx-background-color: #880000;
+}

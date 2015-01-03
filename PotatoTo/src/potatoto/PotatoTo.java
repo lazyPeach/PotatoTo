@@ -41,11 +41,10 @@ public class PotatoTo extends Application {
     loginContrller.setScreenManager(screenManager);
     loginContrller.setPanel(loginPanel);
     
-    MainController mainController = new MainController(timer, taskManager);
+    MainController mainController = new MainController(mainPanel, timer, taskManager);
     mainController.setScreenManager(screenManager);
-    mainController.setMainPanel(mainPanel);
     
-    screenManager.setScreen(loginID);
+    screenManager.setScreen(mainID);
     
     Group root = new Group();
     root.getChildren().addAll(screenManager);
@@ -59,12 +58,8 @@ public class PotatoTo extends Application {
     primaryStage.show();
 
     
-    primaryStage.setOnCloseRequest(new EventHandler<WindowEvent>() {
-
-      @Override
-      public void handle(WindowEvent t) {
-        timer.stop();
-      }
+    primaryStage.setOnCloseRequest((WindowEvent t) -> {
+      timer.stop();
     });
   }  
 }
