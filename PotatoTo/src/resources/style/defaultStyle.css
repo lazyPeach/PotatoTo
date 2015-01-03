@@ -4,29 +4,81 @@
   -fx-font-size: 18pt;
 }
 
+/*start menu*/
+
+.menu-bar {
+  -fx-background-color: #202020;
+  -fx-font-size: 10pt;
+}
+
+.menu {
+  -fx-background-color: transparent;
+  -fx-focus-color: #880000;    
+}
+
+.menu .label {
+  -fx-background-color: transparent;
+  -fx-text-fill: #bb0000;
+}
+
+.menu:hover {
+  -fx-background-color: #880000;
+}
+
+.menu:hover .label {
+  -fx-text-fill: black;
+}
+
+.menu-item {
+  -fx-background-color: transparent;
+  -fx-focus-color: transparent;
+}
+
+.menu-item .label {
+  -fx-background-color: transparent;
+  -fx-text-fill: #bb0000;
+}
+
+.context-menu {
+  -fx-background-color: #202020;
+}
+
+.context-menu:hover {
+  -fx-background-color: #880000;
+  -fx-border-color: #202020;
+}
+
+.context-menu:hover .label {
+  -fx-text-fill: black;
+}
+
+
+
+/*end menu*/
+
 /*start style for login panel*/
 #loginPanel {
   -fx-background-color: #353535;
 }
 
 .loginLabel {
-  -fx-text-fill: #ffffff;
+  -fx-text-fill: #880000;
   -fx-font-family: "Calibri";
   -fx-font-size: 18pt;
 }
 
 #loginError {
-  -fx-text-fill: #dd0000;
+  -fx-text-fill: #ee0000;
   -fx-font-family: "Calibri";
   -fx-font-size: 18pt;
   -fx-alignment: center;
 }
 
 .loginField {
-  -fx-text-fill: #000000;
+  -fx-text-fill: #880000;
   -fx-font-family: "Calibri";
   -fx-font-size: 18pt;
-  -fx-background-color: #a5a5a5;
+  -fx-background-color: #959595;
   -fx-background-radius: 0, 0, 0, 0;
 }
 
@@ -35,7 +87,7 @@
 }
 
 #loginBtn {
-  -fx-text-fill: #000000;
+  -fx-text-fill: #880000;
   -fx-font-family: "Calibri";
   -fx-font-size: 18pt;
   -fx-background-color: #a5a5a5;
@@ -44,7 +96,7 @@
 }
 
 #loginBtn:hover {
-  -fx-text-fill: #ffffff;
+  -fx-text-fill: #660000;
   -fx-background-color: #858585;
 }
 /*end style for login panel*/

@@ -9,15 +9,24 @@ import javafx.beans.property.DoubleProperty;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Node;
+import javafx.scene.control.MenuBar;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.StackPane;
 
 public class ScreenManager extends StackPane {
 
   private final HashMap<String, Node> screens;
+  private MenuBar menuBar;
 
   public ScreenManager() {
     super();
     screens = new HashMap<>();
+
+    handleMouseMovement();
+  }
+
+  public void setMenuBar(MenuBar menuBar) {
+    this.menuBar = menuBar;
   }
 
   public void addScreen(String name, Node screen) {
@@ -41,16 +50,13 @@ public class ScreenManager extends StackPane {
 
         Timeline fade = new Timeline(
                 start,
-                new KeyFrame(new Duration(1000), new EventHandler<ActionEvent>() {
-                  @Override
-                  public void handle(ActionEvent t) {
-                    getChildren().remove(0);                    //remove the displayed screen
-                    getChildren().add(0, screens.get(name));     //add the screen
-                    Timeline fadeIn = new Timeline(
-                            new KeyFrame(Duration.ZERO, new KeyValue(opacity, 0.0)),
-                            new KeyFrame(new Duration(800), new KeyValue(opacity, 1.0)));
-                    fadeIn.play();
-                  }
+                new KeyFrame(new Duration(1000), (ActionEvent t) -> {
+                  getChildren().remove(0);                    //remove the displayed screen
+                  getChildren().add(0, screens.get(name));     //add the screen
+                  Timeline fadeIn = new Timeline(
+                          new KeyFrame(Duration.ZERO, new KeyValue(opacity, 0.0)),
+                          new KeyFrame(new Duration(800), new KeyValue(opacity, 1.0)));
+                  fadeIn.play();
                 }, new KeyValue(opacity, 0.0)));
         fade.play();
 
@@ -74,6 +80,21 @@ public class ScreenManager extends StackPane {
     if (screens.remove(name) == null) {
       System.out.println("Screen didn't exist");
     }
+  }
+
+  private void handleMouseMovement() {
+    setOnMouseMoved(new EventHandler<MouseEvent>() {
+
+      @Override
+      public void handle(MouseEvent event) {
+        System.out.println("x: " + event.getX() + " y: " + event.getY());
+        if (event.getY() <= 10) {
+          menuBar.setVisible(true);
+        } else {
+          menuBar.setVisible(false);
+        }
+      }
+    });
   }
 
 }
