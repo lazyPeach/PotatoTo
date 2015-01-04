@@ -1,0 +1,15 @@
+Yout task report:
+	- Task name: first task; Scheduled sessions: 4; Finished sessions:2; Task priority: high
+	- Task name: second task; Scheduled sessions: 2; Finished sessions:0; Task priority: high
+	- Task name: third task; Scheduled sessions: 2; Finished sessions:0; Task priority: high
+	- Task name: another task; Scheduled sessions: 3; Finished sessions:1; Task priority: high
+	- Task name: bla bla; Scheduled sessions: 6; Finished sessions:2; Task priority: med
+	- Task name: dummy task name; Scheduled sessions: 7; Finished sessions:2; Task priority: med
+	- Task name: nnnname; Scheduled sessions: 2; Finished sessions:0; Task priority: med
+	- Task name: lorem; Scheduled sessions: 5; Finished sessions:1; Task priority: med
+	- Task name: ipsum; Scheduled sessions: 4; Finished sessions:0; Task priority: low
+	- Task name: dolores; Scheduled sessions: 4; Finished sessions:2; Task priority: low
+	- Task name: sit; Scheduled sessions: 3; Finished sessions:2; Task priority: low
+	- Task name: amet; Scheduled sessions: 2; Finished sessions:0; Task priority: low
+	- Task name: cupcake; Scheduled sessions: 1; Finished sessions:2; Task priority: low
+	- Task name: chocolate; Scheduled sessions: 4; Finished sessions:2; Task priority: low

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?><task>
+	<name>first task</name>
+	<estimatedSessions>4</estimatedSessions>
+	<finishedSessions>2</finishedSessions>
+	<priority>high</priority>
+	<name>second task</name>
+	<estimatedSessions>2</estimatedSessions>
+	<finishedSessions>0</finishedSessions>
+	<priority>high</priority>
+	<name>third task</name>
+	<estimatedSessions>2</estimatedSessions>
+	<finishedSessions>0</finishedSessions>
+	<priority>high</priority>
+	<name>another task</name>
+	<estimatedSessions>3</estimatedSessions>
+	<finishedSessions>1</finishedSessions>
+	<priority>high</priority>
+	<name>bla bla</name>
+	<estimatedSessions>6</estimatedSessions>
+	<finishedSessions>2</finishedSessions>
+	<priority>med</priority>
+	<name>dummy task name</name>
+	<estimatedSessions>7</estimatedSessions>
+	<finishedSessions>2</finishedSessions>
+	<priority>med</priority>
+	<name>nnnname</name>
+	<estimatedSessions>2</estimatedSessions>
+	<finishedSessions>0</finishedSessions>
+	<priority>med</priority>
+	<name>lorem</name>
+	<estimatedSessions>5</estimatedSessions>
+	<finishedSessions>1</finishedSessions>
+	<priority>med</priority>
+	<name>ipsum</name>
+	<estimatedSessions>4</estimatedSessions>
+	<finishedSessions>0</finishedSessions>
+	<priority>low</priority>
+	<name>dolores</name>
+	<estimatedSessions>4</estimatedSessions>
+	<finishedSessions>2</finishedSessions>
+	<priority>low</priority>
+	<name>sit</name>
+	<estimatedSessions>3</estimatedSessions>
+	<finishedSessions>2</finishedSessions>
+	<priority>low</priority>
+	<name>amet</name>
+	<estimatedSessions>2</estimatedSessions>
+	<finishedSessions>0</finishedSessions>
+	<priority>low</priority>
+	<name>cupcake</name>
+	<estimatedSessions>1</estimatedSessions>
+	<finishedSessions>2</finishedSessions>
+	<priority>low</priority>
+	<name>chocolate</name>
+	<estimatedSessions>4</estimatedSessions>
+	<finishedSessions>2</finishedSessions>
+	<priority>low</priority>
+</task>

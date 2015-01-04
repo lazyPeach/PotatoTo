@@ -244,6 +244,7 @@
 
 #timerPreferences {
   -fx-background-color: rgba(100, 100, 100, 0.8);
+  -fx-background-radius: 5,5,5,5;
 }
 
 .timerPreferencesLabel {

@@ -6,6 +6,8 @@ import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
 import javafx.scene.layout.AnchorPane;
 import model.CountdownTimer;
+import model.report.ReportFactory;
+import model.report.ReportGenerator;
 import view.TimerPreferences;
 
 public class Underlayer extends AnchorPane {
@@ -20,6 +22,7 @@ public class Underlayer extends AnchorPane {
   private MenuItem timerItem;
   private MenuItem graphicReportItem;
   private MenuItem textReportItem;
+  private MenuItem xmlReportItem;
   private MenuItem detailedTaskItem;
   private MenuItem timerPanelItem;
   private MenuItem preferencesItem;
@@ -41,6 +44,7 @@ public class Underlayer extends AnchorPane {
     timerItem = new MenuItem("timer session");
     graphicReportItem = new MenuItem("graphic report");
     textReportItem = new MenuItem("text report");
+    xmlReportItem = new MenuItem("xml report");
     detailedTaskItem = new MenuItem("detailed task list");
     timerPanelItem = new MenuItem("potato");
     preferencesItem = new MenuItem("customize outlook");
@@ -52,7 +56,7 @@ public class Underlayer extends AnchorPane {
     
     menuLogOut.getItems().add(logOutItem);
     menuPref.getItems().addAll(timerItem, preferencesItem);
-    menuReport.getItems().addAll(graphicReportItem, textReportItem);
+    menuReport.getItems().addAll(graphicReportItem, textReportItem, xmlReportItem);
     menuTask.getItems().addAll(timerPanelItem, detailedTaskItem);
     
     getChildren().add(screenManager);
@@ -88,6 +92,16 @@ public class Underlayer extends AnchorPane {
     
     timerPanelItem.setOnAction((ActionEvent t) -> {
       screenManager.setScreen(PotatoTo.mainID);
+    });
+    
+    textReportItem.setOnAction((ActionEvent t) -> {
+      ReportGenerator reportGenerator = ReportFactory.getReportGenerator(0);
+      reportGenerator.generateReport();
+    });
+    
+    xmlReportItem.setOnAction((ActionEvent t) -> {
+      ReportGenerator reportGenerator = ReportFactory.getReportGenerator(1);
+      reportGenerator.generateReport();
     });
     
   }
