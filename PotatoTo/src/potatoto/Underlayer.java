@@ -1,7 +1,6 @@
 package potatoto;
 
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
@@ -13,10 +12,17 @@ public class Underlayer extends AnchorPane {
 
   private MenuBar menuBar;
   private Menu menuLogOut;
-  private Menu menuTimer;
+  private Menu menuReport;
+  private Menu menuTask;
+  private Menu menuPref;
   
   private MenuItem logOutItem;
   private MenuItem timerItem;
+  private MenuItem graphicReportItem;
+  private MenuItem textReportItem;
+  private MenuItem detailedTaskItem;
+  private MenuItem timerPanelItem;
+  private MenuItem preferencesItem;
   
   private ScreenManager screenManager;
   private CountdownTimer timer;
@@ -27,17 +33,27 @@ public class Underlayer extends AnchorPane {
     menuBar = new MenuBar();
    
     menuLogOut = new Menu("log out");
-    menuTimer = new Menu("timer");
+    menuReport = new Menu("report");
+    menuTask = new Menu("potato");
+    menuPref = new Menu("preferences");
     
     logOutItem = new MenuItem("log out");
-    timerItem = new MenuItem("preferences");
+    timerItem = new MenuItem("timer session");
+    graphicReportItem = new MenuItem("graphic report");
+    textReportItem = new MenuItem("text report");
+    detailedTaskItem = new MenuItem("detailed task list");
+    timerPanelItem = new MenuItem("potato");
+    preferencesItem = new MenuItem("customize outlook");
     
-    menuBar.getMenus().addAll(menuTimer, menuLogOut);
-    menuBar.setVisible(true);
+    
+    menuBar.getMenus().addAll(menuTask, menuReport, menuPref, menuLogOut);
+    menuBar.setVisible(false);
     menuBar.setPrefWidth(300);
     
     menuLogOut.getItems().add(logOutItem);
-    menuTimer.getItems().add(timerItem);
+    menuPref.getItems().addAll(timerItem, preferencesItem);
+    menuReport.getItems().addAll(graphicReportItem, textReportItem);
+    menuTask.getItems().addAll(timerPanelItem, detailedTaskItem);
     
     getChildren().add(screenManager);
     getChildren().add(menuBar);
@@ -63,6 +79,15 @@ public class Underlayer extends AnchorPane {
       timerPreferences.toFront();
       
       getChildren().add(timerPreferences);
+    });
+    
+    detailedTaskItem.setOnAction((ActionEvent t) -> {
+      screenManager.setScreen(PotatoTo.taskID);
+      
+    });
+    
+    timerPanelItem.setOnAction((ActionEvent t) -> {
+      screenManager.setScreen(PotatoTo.mainID);
     });
     
   }

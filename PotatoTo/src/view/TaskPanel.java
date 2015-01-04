@@ -28,9 +28,10 @@ public class TaskPanel extends HBox {
 
   private void initializeStyle() {
     setId("simpleTaskPanel");
-    taskNameLbl.setId("simpleTaskPanel");
-    finishedSessionsLbl.setId("simpleTaskPanel");
-    scheduledSessionsLbl.setId("simpleTaskPanel");
+    String idName = "simpleTaskPanel_" + task.getPriority();
+    taskNameLbl.setId(idName);
+    finishedSessionsLbl.setId(idName);
+    scheduledSessionsLbl.setId(idName);
   }
 
   private void initializePanel() {
@@ -53,6 +54,10 @@ public class TaskPanel extends HBox {
     getChildren().add(taskNameLbl);
     getChildren().add(finishedSessionsLbl);
     getChildren().add(scheduledSessionsLbl);
+  }
+  
+  public Task getTask() {
+    return task;
   }
 
 }

@@ -2,6 +2,7 @@ package potatoto;
 
 import controller.LoginController;
 import controller.MainController;
+import controller.TaskController;
 import javafx.application.Application;
 import javafx.scene.Group;
 import javafx.scene.Scene;
@@ -10,6 +11,7 @@ import javafx.stage.WindowEvent;
 import model.CountdownTimer;
 import model.TaskManager;
 import util.Dimensions;
+import view.DetailedTaskPanel;
 import view.LoginPanel;
 import view.MainPanel;
 
@@ -17,6 +19,7 @@ public class PotatoTo extends Application {
 
   public static String loginID = "login";
   public static String mainID = "main";
+  public static String taskID = "task";
 
   @Override
   public void start(Stage primaryStage) {
@@ -30,18 +33,23 @@ public class PotatoTo extends Application {
 
     LoginPanel loginPanel = new LoginPanel();
     MainPanel mainPanel = new MainPanel(timer, taskManager);
-
+    DetailedTaskPanel taskPanel = new DetailedTaskPanel(taskManager);
+    
     screenManager.addScreen(loginID, loginPanel);
     screenManager.addScreen(mainID, mainPanel);
-
+    screenManager.addScreen(taskID, taskPanel);
+    
     LoginController loginContrller = new LoginController();
     loginContrller.setScreenManager(screenManager);
     loginContrller.setPanel(loginPanel);
 
     MainController mainController = new MainController(mainPanel, timer, taskManager);
     mainController.setScreenManager(screenManager);
-
-    screenManager.setScreen(mainID);
+    
+    TaskController taskController = new TaskController(taskPanel, taskManager);
+    taskController.setScreenManager(screenManager);
+    
+    screenManager.setScreen(taskID);
 
     Group root = new Group();
     root.getChildren().add(scenePanel);

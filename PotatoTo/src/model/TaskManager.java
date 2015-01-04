@@ -21,6 +21,13 @@ public class TaskManager {
     return taskDao.getAll();
   }
 
+  public void removeTask(Task task) {
+    taskDao.delete(task.getTaskId());
+  }
+  
+  public void createTask(Task task) {
+    taskDao.create(task);
+  }
   
   
   

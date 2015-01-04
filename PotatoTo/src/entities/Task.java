@@ -6,11 +6,13 @@ public class Task {
   private String taskName;
   private int scheduledSessions;
   private int finishedSessions;
+  private String priority;
 
   public Task() {
     taskName = new String("test task");
     scheduledSessions = 0;
     finishedSessions = 0;
+    priority = "low";
   }
 
   public int getTaskId() {
@@ -43,6 +45,19 @@ public class Task {
 
   public void setFinishedSessions(int finishedSessions) {
     this.finishedSessions = finishedSessions;
+  }
+
+  public String getPriority() {
+    return priority;
+  }
+
+  public void setPriority(String priority) {
+    this.priority = priority;
+  }
+
+  @Override
+  public String toString() {
+    return "Task{" + "taskId=" + taskId + ", taskName=" + taskName + ", scheduledSessions=" + scheduledSessions + ", finishedSessions=" + finishedSessions + ", priority=" + priority + '}';
   }
   
   

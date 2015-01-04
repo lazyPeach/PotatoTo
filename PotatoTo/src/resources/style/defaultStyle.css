@@ -39,16 +39,17 @@
   -fx-text-fill: #bb0000;
 }
 
+.menu-item:hover {
+  -fx-background-color: #880000;
+
+}
+
 .context-menu {
   -fx-background-color: #202020;
 }
 
-.context-menu:hover {
-  -fx-background-color: #880000;
-  -fx-border-color: #202020;
-}
 
-.context-menu:hover .label {
+.menu-item:hover .label {
   -fx-text-fill: black;
 }
 
@@ -156,7 +157,6 @@
 }
 
 #taskList {
-
   -fx-font-size: 10pt;
   -fx-background-color: #555555;
 }
@@ -164,7 +164,7 @@
 /*scrollbar http://blog.ngopal.com.np/2012/07/11/customize-scrollbar-via-css/*/
 
 #taskList .scroll-bar:vertical {
-  -fx-background-color: #555555;
+  -fx-background-color: rgba(85, 85, 85, 0.9);
 }
 
 #taskList .scroll-bar:vertical .track {
@@ -215,9 +215,21 @@
 
 #simpleTaskPanel {
   -fx-background-color: rgba(0,0,0,0);
-  -fx-text-fill: #aa0000;
+  -fx-text-fill: #dddddd;
   -fx-font-family: "Calibri";
   -fx-font-size: 10pt;
+}
+
+#simpleTaskPanel_high {
+  -fx-text-fill: #c00000;
+}
+
+#simpleTaskPanel_med {
+  -fx-text-fill: #cc5500;
+}
+
+#simpleTaskPanel_low {
+  -fx-text-fill: #cccc33;
 }
 
 #taskHeader {
@@ -269,5 +281,65 @@
 }
 
 /*end timer preferences panel*/
+
+/*start detailed task panel*/
+
+#detailedTaskPanel {
+  -fx-background-color: #353535;
+}
+
+#searchField {
+  -fx-text-fill: #880000;
+  -fx-font-family: "Calibri";
+  -fx-font-size: 15pt;
+  -fx-background-color: #959595;
+  -fx-background-radius: 0, 0, 0, 0;
+}
+
+.taskButtons {
+  -fx-text-fill: #880000;
+  -fx-font-family: "Calibri";
+  -fx-font-size: 8pt;
+  -fx-background-color: #959595;
+  -fx-background-radius: 0, 0, 0, 0;
+}
+
+.taskButtons:hover {
+  -fx-text-fill: #bb0000;
+  -fx-font-family: "Calibri";
+  -fx-font-size: 8pt;
+  -fx-background-color: #656565;
+  -fx-background-radius: 0, 0, 0, 0;
+}
+
+#addTaskPanel {
+  -fx-background-color: rgba(53, 53, 53, 0.9);
+}
+
+.addTaskLabel {
+  -fx-text-fill: #bb0000;
+  -fx-font-family: "Calibri";
+  -fx-font-size: 12pt;
+}
+
+#addTaskField {
+  -fx-text-fill: #cc0000;
+  -fx-font-family: "Calibri";
+  -fx-font-size: 10pt;
+  -fx-background-color: #555555;
+}
+
+.addTaskBox {
+  -fx-text-fill: #cc0000;
+  -fx-font-family: "Calibri";
+  -fx-font-size: 10pt;
+  -fx-background-color: #555555;
+}
+
+.addTaskBox .label {
+  -fx-text-fill: #cc0000;
+}
+
+/*end detailed task panel*/
 
 

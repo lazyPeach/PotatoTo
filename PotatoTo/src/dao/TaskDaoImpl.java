@@ -18,7 +18,7 @@ public class TaskDaoImpl implements TaskDao {
 
   @Override
   public void create(Task task) {
-    throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    System.out.println("Will create task " + task);
   }
 
   @Override
@@ -33,7 +33,7 @@ public class TaskDaoImpl implements TaskDao {
 
   @Override
   public void delete(Integer taskId) {
-    throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    System.out.println("will delete task having id " + taskId);
   }
 
   @Override
@@ -61,6 +61,7 @@ public class TaskDaoImpl implements TaskDao {
           tempTask.setTaskName(eElement.getAttribute("name"));
           tempTask.setScheduledSessions(Integer.parseInt(eElement.getAttribute("scheduledSessions")));
           tempTask.setFinishedSessions(Integer.parseInt(eElement.getAttribute("finishedSessions")));
+          tempTask.setPriority(eElement.getAttribute("priority"));
           
           taskList.add(tempTask);
         }
