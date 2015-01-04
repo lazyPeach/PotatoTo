@@ -1,6 +1,7 @@
 package potatoto;
 
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
@@ -102,6 +103,10 @@ public class Underlayer extends AnchorPane {
     xmlReportItem.setOnAction((ActionEvent t) -> {
       ReportGenerator reportGenerator = ReportFactory.getReportGenerator(1);
       reportGenerator.generateReport();
+    });
+    
+    graphicReportItem.setOnAction((ActionEvent t) -> {
+      screenManager.setScreen(PotatoTo.reportID);
     });
     
   }

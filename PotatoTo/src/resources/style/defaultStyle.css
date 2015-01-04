@@ -343,4 +343,47 @@
 
 /*end detailed task panel*/
 
+/*start report panel*/
 
+#reportPanel {
+  -fx-background-color: #353535;
+}
+
+.chart-title {
+  -fx-text-fill: #cc0000;
+  -fx-font-family: "Calibri";
+  -fx-font-size: 20pt;
+}
+
+.chart-legend {
+  -fx-font-family: "Calibri";
+  -fx-font-size: 10pt;
+  -fx-background-color: #555555;
+  -fx-border-color: black;
+  -fx-border-radius: 1em;
+  -fx-background-radius: 1em;
+}
+
+.chart-legend-item {
+  -fx-text-fill: #cc0000;
+}
+
+.data0.chart-pie { -fx-pie-color: #330000; }
+.data1.chart-pie { -fx-pie-color: #dd0000; }
+.data2.chart-pie { -fx-pie-color: #990000; }
+
+.chart-pie {
+  -fx-border-color: black;
+  -fx-border-radius: 50%;
+}
+
+.default-color0.chart-bar { -fx-bar-fill: #cc0000; }
+.default-color1.chart-bar { -fx-bar-fill: #550000; }
+
+.axis{
+  -fx-font-family: "Calibri";
+  -fx-font-size: 10pt;
+  -fx-text-fill: #bb0000;
+}
+
+/*end report panel*/

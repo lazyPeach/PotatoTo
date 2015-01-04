@@ -1,17 +1,17 @@
 <?xml version="1.0"?>
 <taskList>
-  <task id="1" name="first task" scheduledSessions="4" finishedSessions="2" priority="high" />
-  <task id="2" name="second task" scheduledSessions="2" finishedSessions="0" priority="high" />
-  <task id="3" name="third task" scheduledSessions="2" finishedSessions="0" priority="high" />
-  <task id="4" name="another task" scheduledSessions="3" finishedSessions="1" priority="high" />
+  <task id="1" name="first task" scheduledSessions="4" finishedSessions="3" priority="high" />
+  <task id="2" name="second task" scheduledSessions="2" finishedSessions="1" priority="high" />
+  <task id="3" name="third task" scheduledSessions="2" finishedSessions="1" priority="high" />
+  <task id="4" name="another task" scheduledSessions="3" finishedSessions="4" priority="high" />
   <task id="5" name="bla bla" scheduledSessions="6" finishedSessions="2" priority="med" />
   <task id="6" name="dummy task name" scheduledSessions="7" finishedSessions="2" priority="med" />
-  <task id="7" name="nnnname" scheduledSessions="2" finishedSessions="0" priority="med" />
-  <task id="8" name="lorem" scheduledSessions="5" finishedSessions="1" priority="med" />
-  <task id="9" name="ipsum" scheduledSessions="4" finishedSessions="0" priority="low" />
+  <task id="7" name="nnnname" scheduledSessions="2" finishedSessions="2" priority="med" />
+  <task id="8" name="lorem" scheduledSessions="5" finishedSessions="3" priority="med" />
+  <task id="9" name="ipsum" scheduledSessions="4" finishedSessions="6" priority="low" />
   <task id="10" name="dolores" scheduledSessions="4" finishedSessions="2" priority="low" />
   <task id="11" name="sit" scheduledSessions="3" finishedSessions="2" priority="low" />
-  <task id="12" name="amet" scheduledSessions="2" finishedSessions="0" priority="low" />
+  <task id="12" name="amet" scheduledSessions="2" finishedSessions="4" priority="low" />
   <task id="13" name="cupcake" scheduledSessions="1" finishedSessions="2" priority="low" />
   <task id="14" name="chocolate" scheduledSessions="4" finishedSessions="2" priority="low" />
 

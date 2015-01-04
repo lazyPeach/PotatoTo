@@ -14,12 +14,14 @@ import util.Dimensions;
 import view.DetailedTaskPanel;
 import view.LoginPanel;
 import view.MainPanel;
+import view.ReportPanel;
 
 public class PotatoTo extends Application {
 
   public static String loginID = "login";
   public static String mainID = "main";
   public static String taskID = "task";
+  public static String reportID = "report";
 
   @Override
   public void start(Stage primaryStage) {
@@ -34,10 +36,12 @@ public class PotatoTo extends Application {
     LoginPanel loginPanel = new LoginPanel();
     MainPanel mainPanel = new MainPanel(timer, taskManager);
     DetailedTaskPanel taskPanel = new DetailedTaskPanel(taskManager);
+    ReportPanel reportPanel = new ReportPanel(taskManager);
     
     screenManager.addScreen(loginID, loginPanel);
     screenManager.addScreen(mainID, mainPanel);
     screenManager.addScreen(taskID, taskPanel);
+    screenManager.addScreen(reportID, reportPanel);
     
     LoginController loginContrller = new LoginController();
     loginContrller.setScreenManager(screenManager);
@@ -49,7 +53,7 @@ public class PotatoTo extends Application {
     TaskController taskController = new TaskController(taskPanel, taskManager);
     taskController.setScreenManager(screenManager);
     
-    screenManager.setScreen(taskID);
+    screenManager.setScreen(reportID);
 
     Group root = new Group();
     root.getChildren().add(scenePanel);
