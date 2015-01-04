@@ -3,6 +3,7 @@ package view;
 import entities.Task;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Pattern;
 import javafx.animation.TranslateTransition;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -66,16 +67,8 @@ public class DetailedTaskPanel extends AnchorPane {
     addRemovePanel.setLayoutY(500 - addRemovePanel.getPrefHeight());
     initializeAddRemovePanel();
 
-    ArrayList<TaskPanel> taskPanelList = new ArrayList<>();
-    List<Task> taskList = taskManager.getTaskList();
+    populateTaskList(taskManager.getTaskList());
 
-    for (Task task : taskList) {
-      TaskPanel testPanel = new TaskPanel(task);
-      taskPanelList.add(testPanel);
-    }
-
-    ObservableList<TaskPanel> observableTaskPanelList = FXCollections.observableArrayList(taskPanelList);
-    listView.setItems(observableTaskPanelList);
     listView.setPrefWidth(300);
     listView.setPrefHeight(500 - (searchField.getPrefHeight() + addRemovePanel.getPrefHeight()));
     listView.setLayoutY(searchField.getPrefHeight());
@@ -90,6 +83,17 @@ public class DetailedTaskPanel extends AnchorPane {
     getChildren().add(listView);
     getChildren().add(addTaskPanel);
     getChildren().add(updateTaskPanel);
+  }
+
+  private void populateTaskList(List<Task> taskList) {
+    ArrayList<TaskPanel> taskPanelList = new ArrayList<>();
+    for (Task task : taskList) {
+      TaskPanel testPanel = new TaskPanel(task);
+      taskPanelList.add(testPanel);
+    }
+
+    ObservableList<TaskPanel> observableTaskPanelList = FXCollections.observableArrayList(taskPanelList);
+    listView.setItems(observableTaskPanelList);
   }
 
   private void initializeAddRemovePanel() {
@@ -117,12 +121,26 @@ public class DetailedTaskPanel extends AnchorPane {
 
   }
 
-  private int mouseY;
+  private List<Task> getSearchedTasks(String titleSearch) {
+    List<Task> allTasks = taskManager.getTaskList();
+    List<Task> retTasks = new ArrayList<>();
+
+    System.out.println("title search is " + titleSearch);
+
+    for (Task task : allTasks) {
+      if (task.getTaskName().toLowerCase().contains(titleSearch.toLowerCase())) {
+        retTasks.add(task);
+      }
+    }
+
+    return retTasks;
+  }
 
   private void initializeHandlers() {
 
     searchField.setOnKeyReleased((KeyEvent t) -> {
-      System.out.println("until now you typed " + searchField.getText());
+      List<Task> remainingTasks = getSearchedTasks(searchField.getText());
+      populateTaskList(remainingTasks);
     });
 
     listView.getSelectionModel().selectedIndexProperty().addListener((ObservableValue<? extends Number> ov, Number oldValue, Number newValue) -> {
