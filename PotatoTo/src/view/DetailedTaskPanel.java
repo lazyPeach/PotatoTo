@@ -13,6 +13,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
@@ -150,16 +151,22 @@ public class DetailedTaskPanel extends AnchorPane {
     });
 
     listView.setOnMouseClicked((MouseEvent mouseEvent) -> {
-      if (mouseEvent.getY() < listView.getPrefHeight() / 2) {
-        updateTaskPanel.setLayoutY(mouseEvent.getY() + searchField.getPrefHeight());
-      } else {
-        updateTaskPanel.setLayoutY(mouseEvent.getY() + searchField.getPrefHeight() - updateTaskPanel.getPrefHeight());
+      if (mouseEvent.getButton().equals(MouseButton.PRIMARY) && mouseEvent.getClickCount() == 2) {
+        if (mouseEvent.getY() < listView.getPrefHeight() / 2) {
+          updateTaskPanel.setLayoutY(mouseEvent.getY() + searchField.getPrefHeight());
+        } else {
+          updateTaskPanel.setLayoutY(mouseEvent.getY() + searchField.getPrefHeight() - updateTaskPanel.getPrefHeight());
 
+        }
+        updateTaskPanel.setVisible(true);
+      } else {
+        updateTaskPanel.setVisible(false);
       }
-      updateTaskPanel.setVisible(true);
+
     });
 
     addBtn.setOnMouseClicked((MouseEvent t) -> {
+
       if (addTaskPanel.isVisible()) {
         Task newTask = addTaskPanel.getNewTask();
         listView.getItems().add(new TaskPanel(newTask));

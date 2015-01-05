@@ -4,11 +4,16 @@ import controller.LoginController;
 import controller.MainController;
 import controller.TaskController;
 import javafx.application.Application;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
+import javafx.event.Event;
+import javafx.event.EventHandler;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 import model.CountdownTimer;
+import model.Styler;
 import model.TaskManager;
 import util.Dimensions;
 import view.DetailedTaskPanel;
@@ -28,9 +33,10 @@ public class PotatoTo extends Application {
 
     CountdownTimer timer = new CountdownTimer();
     TaskManager taskManager = new TaskManager();
+    Styler styler = new Styler();
 
     ScreenManager screenManager = new ScreenManager();
-    Underlayer scenePanel = new Underlayer(screenManager, timer);
+    Underlayer scenePanel = new Underlayer(screenManager, timer, styler);
     screenManager.setMenuBar(scenePanel.getMenuBar());
 
     LoginPanel loginPanel = new LoginPanel();
@@ -59,7 +65,7 @@ public class PotatoTo extends Application {
     root.getChildren().add(scenePanel);
 
     Scene scene = new Scene(root, Dimensions.APPLICATION_WIDTH, Dimensions.APPLICATION_HEIGHT);
-    scene.getStylesheets().add("resources/style/defaultStyle.css");
+    scene.getStylesheets().add(Styler.JAMAICA_STYLE);
 
     primaryStage.setTitle("PotatoTo");
     primaryStage.setScene(scene);
@@ -68,6 +74,12 @@ public class PotatoTo extends Application {
     primaryStage.setOnCloseRequest((WindowEvent t) -> {
       timer.stop();
     });
-
+    
+    styler.styleProperty().addListener((ObservableValue<? extends String> ov, String oldStyle, String newStyle) -> {
+      scene.getStylesheets().remove(oldStyle);
+      scene.getStylesheets().add(newStyle);
+      
+    });
   }
+  
 }

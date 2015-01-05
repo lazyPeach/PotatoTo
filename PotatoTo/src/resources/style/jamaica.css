@@ -1,32 +1,37 @@
 .root {
-  -fx-text-fill: #ffffff;
   -fx-font-family: "Calibri";
   -fx-font-size: 18pt;
+  -fx-text-fill: #ffffff;
+
 }
 
 /*start menu*/
 
 .menu-bar {
-  -fx-background-color: #202020;
+  -fx-background-color: rgb(0, 155, 58);
   -fx-font-size: 10pt;
 }
 
 .menu {
   -fx-background-color: transparent;
-  -fx-focus-color: #880000;    
+  -fx-focus-color: rgb(254, 209, 0);    
 }
 
 .menu .label {
   -fx-background-color: transparent;
-  -fx-text-fill: #bb0000;
+  -fx-text-fill: black;
 }
 
 .menu:hover {
-  -fx-background-color: #880000;
+  -fx-background-color: rgb(254, 209, 0);
 }
 
 .menu:hover .label {
   -fx-text-fill: black;
+}
+
+.context-menu {
+  -fx-background-color: rgb(0, 155, 58);
 }
 
 .menu-item {
@@ -36,135 +41,130 @@
 
 .menu-item .label {
   -fx-background-color: transparent;
-  -fx-text-fill: #bb0000;
+  -fx-text-fill: black;
 }
 
 .menu-item:hover {
-  -fx-background-color: #880000;
-
+  -fx-background-color: rgb(254, 209, 0);
 }
-
-.context-menu {
-  -fx-background-color: #202020;
-}
-
 
 .menu-item:hover .label {
   -fx-text-fill: black;
 }
 
 
-
 /*end menu*/
 
 /*start style for login panel*/
 #loginPanel {
-  -fx-background-color: #353535;
+  -fx-background-color: rgb(0, 155, 58);
 }
 
 .loginLabel {
-  -fx-text-fill: #880000;
+  -fx-text-fill: black;
   -fx-font-family: "Calibri";
   -fx-font-size: 18pt;
 }
 
 #loginError {
-  -fx-text-fill: #ee0000;
+  -fx-text-fill: rgb(254, 209, 0);
   -fx-font-family: "Calibri";
   -fx-font-size: 18pt;
   -fx-alignment: center;
 }
 
 .loginField {
-  -fx-text-fill: #880000;
+  -fx-text-fill: black;
   -fx-font-family: "Calibri";
   -fx-font-size: 18pt;
-  -fx-background-color: #959595;
-  -fx-background-radius: 0, 0, 0, 0;
+  -fx-background-color: rgb(254, 209, 0);
+  -fx-background-radius: 2em;
+  -fx-border-radius: 2em;
 }
 
 .loginField:focused {
-  -fx-border-color: #000000;
+  -fx-border-color: black;
 }
 
 #loginBtn {
-  -fx-text-fill: #880000;
+  -fx-text-fill: black;
   -fx-font-family: "Calibri";
   -fx-font-size: 18pt;
-  -fx-background-color: #a5a5a5;
-  -fx-background-radius: 0;
-  -fx-border-color: #858585;
+  -fx-background-color: rgb(254, 209, 0);
+  -fx-background-radius: 2em;
 }
 
 #loginBtn:hover {
-  -fx-text-fill: #660000;
-  -fx-background-color: #858585;
+  -fx-text-fill: rgb(254, 209, 0);
+  -fx-background-color: black;
+  -fx-border-color: transparent;
 }
 /*end style for login panel*/
 
 
 /*start style for main panel*/
 #mainPanel {
-  -fx-background-color: #353535;
+  -fx-background-color: rgb(0, 155, 58);
 }
 
 /* start timer panel*/
 #digitPanel {
-  -fx-background-color: rgba(0,0,0,0);
+  -fx-background-color: transparent;
 }
 
 .digit {
-  -fx-fill: #550000;
-  -fx-stroke: #550000;
+  -fx-fill: rgb(254, 209, 0);
+  -fx-stroke: black;
 }
 
 .timerBtn {
-  -fx-text-fill: #000000;
+  -fx-text-fill: #4a4a4a;
   -fx-font-family: "Calibri";
   -fx-font-size: 8pt;
   -fx-background-radius:0,0,0,0;
 }
 
 #timerStart {
-  -fx-background-color: #555555;
+  -fx-background-color: rgb(0, 155, 58);
 }
 
 #timerPause {
-  -fx-background-color: #808000;
+  -fx-background-color: rgb(254, 209, 0);
 }
 
 #timerStop {
-  -fx-background-color: #880000;
+  -fx-background-color: black;
 }
 /*end timer panel*/
 
+
 /*start task panel*/
 #taskPanel {
-  -fx-background-color: rgba(0,0,0,0);
+  -fx-background-color: transparent;
 }
 
 #triangleDecoration {
-  -fx-fill: #000000;
-  -fx-stroke: #000000;
+  -fx-fill: rgb(254, 209, 0);
+  -fx-stroke: black;
 }
 
 #sizeManagerPanel {
-  -fx-background-color: #555555;
+  -fx-background-color: rgb(0, 155, 58);
 }
 
 #sizeManagerPanel:hover {
-  -fx-background-color: #550000;  
+  -fx-background-color: rgb(0, 200, 58);  
 }
 
 #taskList {
   -fx-font-size: 10pt;
-  -fx-background-color: #555555;
+  -fx-background-color: rgb(0, 155, 58);
 }
 
 /*scrollbar http://blog.ngopal.com.np/2012/07/11/customize-scrollbar-via-css/*/
 
 #taskList .scroll-bar:vertical {
-  -fx-background-color: rgba(85, 85, 85, 0.9);
+  -fx-background-color: rgba(0, 155, 58, 0.9);
 }
 
 #taskList .scroll-bar:vertical .track {
@@ -188,53 +188,53 @@
 }
 
 #taskList .scroll-bar:vertical .thumb {
-  -fx-background-color: #880000;
+  -fx-background-color: black;
   -fx-background-insets: 2, 0, 0;
   -fx-background-radius: 2em;
 }
 
 #taskList:focused {
-  -fx-focus-color: #555555;
+  -fx-focus-color: rgb(0, 155, 58);
 }
 
 .list-cell:even {
-  -fx-background-color: #656565;
+  -fx-background-color: rgb(0, 120, 58);
 }
 
 .list-cell:odd {
-  -fx-background-color: #757575;
+  -fx-background-color: rgb(0, 180, 58);
 }
 
 .list-cell:filled:hover {
-  -fx-background-color: #505050;
+  -fx-background-color: rgb(254, 209, 0);
 }
 
 .list-cell:filled:selected:focused, .list-cell:filled:selected {
-  -fx-background-color: linear-gradient(#909090 0%, #555555 25%, #555555 75%, #909090 100%);
+  -fx-background-color: linear-gradient(rgb(254, 209, 0) 0%, rgb(0, 155, 58) 25%, rgb(0, 155, 58) 75%, rgb(254, 209, 0) 100%);
 }
 
 #simpleTaskPanel {
-  -fx-background-color: rgba(0,0,0,0);
-  -fx-text-fill: #dddddd;
+  -fx-background-color: transparent;
+  -fx-text-fill: black;
   -fx-font-family: "Calibri";
   -fx-font-size: 10pt;
 }
 
 #simpleTaskPanel_high {
-  -fx-text-fill: #c00000;
+  -fx-text-fill: #330000;
 }
 
 #simpleTaskPanel_med {
-  -fx-text-fill: #cc5500;
+  -fx-text-fill: #770000;
 }
 
 #simpleTaskPanel_low {
-  -fx-text-fill: #cccc33;
+  -fx-text-fill: #aa0000;
 }
 
 #taskHeader {
-  -fx-background-color: #454545;
-  -fx-text-fill: #880000;
+  -fx-background-color: rgb(0, 155, 58);
+  -fx-text-fill: rgb(254, 209, 0);
   -fx-font-family: "Calibri";
   -fx-font-size: 10pt;
 }
@@ -243,42 +243,46 @@
 /*start timer preferences panel*/
 
 #timerPreferences {
-  -fx-background-color: rgba(100, 100, 100, 0.8);
+  -fx-background-color: rgba(254, 209, 0, 0.8);
   -fx-background-radius: 5,5,5,5;
 }
 
 .timerPreferencesLabel {
 
-  -fx-text-fill: #bb0000;
+  -fx-text-fill: black;
   -fx-font-family: "Calibri";
   -fx-font-size: 10pt;
 }
 
 .timerPreferencesSlider {
   -fx-background-color: transparent;
-  -fx-text-fill: #bb0000;
+  -fx-text-fill: black;
   -fx-font-family: "Calibri";
-  -fx-font-size: 10pt;
+  -fx-font-size: 8pt;
 }
 
 .timerPreferencesSlider .track {
-  -fx-background-color: #aa0000;
+  -fx-background-color: black;
 }
 
 .timerPreferencesSlider .thumb {
-  -fx-background-color: #880000;
-  -fx-border-color: #353535;
+  -fx-background-color: rgb(0, 155, 58);
+  -fx-border-color: black;
   -fx-border-radius: 50%;
 }
 
 .timerPreferencesBtn {
   -fx-background-radius: 50%;
-  -fx-background-color: #252525;
-  -fx-text-fill: #880000;
+  -fx-background-color: rgb(0, 155, 58);
+  -fx-text-fill: black;
   -fx-font-family: "Calibri";
   -fx-font-size: 10pt;
   -fx-border-radius: 50%;
-  -fx-border-color: #770000;
+  -fx-border-color: black;
+}
+
+.timerPreferencesBtn:hover {
+  -fx-background-color: rgb(254, 209, 0);
 }
 
 /*end timer preferences panel*/
@@ -286,59 +290,63 @@
 /*start detailed task panel*/
 
 #detailedTaskPanel {
-  -fx-background-color: #353535;
+  -fx-background-color: rgb(254, 209, 0);
 }
 
 #searchField {
-  -fx-text-fill: #880000;
+  -fx-text-fill: black;
   -fx-font-family: "Calibri";
   -fx-font-size: 15pt;
-  -fx-background-color: #959595;
+  -fx-background-color: rgb(254, 209, 0);
   -fx-background-radius: 0, 0, 0, 0;
 }
 
 .taskButtons {
-  -fx-text-fill: #880000;
+  -fx-text-fill: black;
   -fx-font-family: "Calibri";
   -fx-font-size: 8pt;
-  -fx-background-color: #959595;
+  -fx-background-color: rgb(254, 209, 0);
   -fx-background-radius: 0, 0, 0, 0;
 }
 
 .taskButtons:hover {
-  -fx-text-fill: #bb0000;
+  -fx-text-fill: rgb(254, 209, 0);
   -fx-font-family: "Calibri";
   -fx-font-size: 8pt;
-  -fx-background-color: #656565;
+  -fx-background-color: black;
   -fx-background-radius: 0, 0, 0, 0;
 }
 
 #addTaskPanel {
-  -fx-background-color: rgba(53, 53, 53, 0.9);
+  -fx-background-color: rgba(254, 209, 0, 0.9);
 }
 
 .addTaskLabel {
-  -fx-text-fill: #bb0000;
+  -fx-text-fill: black;
   -fx-font-family: "Calibri";
   -fx-font-size: 12pt;
 }
 
 #addTaskField {
-  -fx-text-fill: #cc0000;
+  -fx-text-fill: black;
   -fx-font-family: "Calibri";
   -fx-font-size: 10pt;
-  -fx-background-color: #555555;
+  -fx-background-color: rgb(254, 209, 0);
+  -fx-border-color: black;
+  -fx-border-radius: 1em;
 }
 
 .addTaskBox {
-  -fx-text-fill: #cc0000;
+  -fx-text-fill: black;
   -fx-font-family: "Calibri";
   -fx-font-size: 10pt;
-  -fx-background-color: #555555;
+  -fx-background-color: rgb(254, 209, 0);
+  -fx-border-color: black;
+  -fx-border-radius: 1em;
 }
 
 .addTaskBox .label {
-  -fx-text-fill: #cc0000;
+  -fx-text-fill: black;
 }
 
 /*end detailed task panel*/
@@ -346,11 +354,11 @@
 /*start report panel*/
 
 #reportPanel {
-  -fx-background-color: #353535;
+  -fx-background-color: rgb(0, 155, 58);
 }
 
 .chart-title {
-  -fx-text-fill: #cc0000;
+  -fx-text-fill: black;
   -fx-font-family: "Calibri";
   -fx-font-size: 20pt;
 }
@@ -358,27 +366,27 @@
 .chart-legend {
   -fx-font-family: "Calibri";
   -fx-font-size: 10pt;
-  -fx-background-color: #555555;
+  -fx-background-color: rgb(0, 155, 58);
   -fx-border-color: black;
   -fx-border-radius: 1em;
   -fx-background-radius: 1em;
 }
 
 .chart-legend-item {
-  -fx-text-fill: #cc0000;
+  -fx-text-fill: black;
 }
 
-.data0.chart-pie { -fx-pie-color: #330000; }
-.data1.chart-pie { -fx-pie-color: #dd0000; }
-.data2.chart-pie { -fx-pie-color: #990000; }
+.data0.chart-pie { -fx-pie-color: rgb(254, 209, 0); }
+.data1.chart-pie { -fx-pie-color: rgb(200, 209, 0); }
+.data2.chart-pie { -fx-pie-color: rgb(200, 150, 0); }
 
 .chart-pie {
   -fx-border-color: black;
   -fx-border-radius: 50%;
 }
 
-.default-color0.chart-bar { -fx-bar-fill: #cc0000; }
-.default-color1.chart-bar { -fx-bar-fill: #550000; }
+.default-color0.chart-bar { -fx-bar-fill: rgb(254, 209, 0); }
+.default-color1.chart-bar { -fx-bar-fill: rgb(200, 209, 0); }
 
 .axis{
   -fx-font-family: "Calibri";
@@ -386,7 +394,7 @@
 }
 
 .axis .label {
-  -fx-text-fill: #bb0000;
+    -fx-text-fill: black;
 }
 
 /*end report panel*/

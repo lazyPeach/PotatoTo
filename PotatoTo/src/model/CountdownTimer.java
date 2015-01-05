@@ -89,6 +89,7 @@ public class CountdownTimer {
       public void run() {
         // this is needed, otherwise an exception will be thrown when updating the GUI since JavaFX 
         // requires GUI update only from FX thread and this timer thread is a different one.
+        
         Platform.runLater(() -> {
           time--;
           setSeconds(time % 60);

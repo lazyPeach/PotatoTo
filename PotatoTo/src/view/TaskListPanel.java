@@ -13,6 +13,8 @@ import javafx.scene.shape.Polygon;
 import javafx.util.Duration;
 import entities.Task;
 import java.util.List;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 import model.TaskManager;
@@ -50,7 +52,7 @@ public class TaskListPanel extends AnchorPane {
   private void initializeHeader() {
     header.setPrefWidth(300);
     header.setPrefHeight(20);
-    
+
     Label taskNameLbl = new Label("Task name");
     Label finishedSessionsLbl = new Label("D");
     Label scheduledSessionsLbl = new Label("E");
@@ -62,7 +64,7 @@ public class TaskListPanel extends AnchorPane {
     taskNameLbl.setId("taskHeader");
     finishedSessionsLbl.setId("taskHeader");
     scheduledSessionsLbl.setId("taskHeader");
-    
+
     header.getChildren().add(taskNameLbl);
     header.getChildren().add(finishedSessionsLbl);
     header.getChildren().add(scheduledSessionsLbl);
@@ -101,6 +103,7 @@ public class TaskListPanel extends AnchorPane {
     rt.play();
 
     initializePanel();
+
   }
 
   // compresses the task list panel
@@ -115,7 +118,10 @@ public class TaskListPanel extends AnchorPane {
     rt.setToAngle(360);
     rt.play();
 
-    initializePanel();
+    tt.setOnFinished((ActionEvent t) -> {
+      initializePanel();
+    });
+
   }
 
   private void initializePanel() {
@@ -146,7 +152,7 @@ public class TaskListPanel extends AnchorPane {
     listView.setLayoutY(sizeManagerPanel.getPrefHeight() + header.getPrefHeight());
 
     header.setLayoutY(sizeManagerPanel.getPrefHeight());
-    
+
     getChildren().add(sizeManagerPanel);
     getChildren().add(header);
     getChildren().add(listView);
